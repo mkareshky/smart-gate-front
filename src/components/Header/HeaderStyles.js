@@ -25,14 +25,22 @@ export const NavLinks = styled.ul`
   padding: 0;
 `;
 
-export const NavLink = styled.li`
+export const NavLink = styled.a` /* Changed to 'a' for styling purposes */
   font-size: 1rem;
   color: black;
   cursor: pointer;
-  transition: color 0.3s;
+  text-decoration: none;
+  padding: 5px 10px; /* Added padding for better click area */
+  border-radius: 4px; /* Added border-radius for rounded corners */
+  transition: background-color 0.3s, color 0.3s;
+
+  &.active {
+    background-color: black; /* Black background for active link */
+    color: white; /* White text for active link */
+  }
 
   &:hover {
-    text-decoration: underline;
+    text-decoration: none; /* Remove underline on hover */
   }
 `;
 
@@ -45,6 +53,7 @@ export const ContactButton = styled.button`
   cursor: pointer;
   border-radius: 4px;
   transition: background-color 0.3s, color 0.3s;
+  text-decoration: none;
 
   &:hover {
     background-color: black;

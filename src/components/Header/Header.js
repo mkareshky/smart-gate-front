@@ -1,16 +1,33 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import { NavBar, Logo, NavLinks, NavLink, ContactButton } from './HeaderStyles';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 function Header() {
+  const location = useLocation();
+
   return (
     <NavBar>
       <Logo>SMARTGATE</Logo>
       <NavLinks>
-        <NavLink as={Link} to="/">Home</NavLink> {/* Use Link for navigation */}
-        <NavLink as={Link} to="/about">About</NavLink> {/* Add route for About if needed */}
-        <NavLink as={Link} to="/services">Services</NavLink>
-        <ContactButton as={Link} to="/contact">Contact</ContactButton> {/* Add route for Contact if needed */}
+        <NavLink
+          href="/"
+          className={location.pathname === '/' ? 'active' : ''}
+        >
+          Home
+        </NavLink>
+        <NavLink
+          href="/about"
+          className={location.pathname === '/about' ? 'active' : ''}
+        >
+          About
+        </NavLink>
+        <NavLink
+          href="/services"
+          className={location.pathname === '/services' ? 'active' : ''}
+        >
+          Services
+        </NavLink>
+        <ContactButton>Contact</ContactButton>
       </NavLinks>
     </NavBar>
   );
