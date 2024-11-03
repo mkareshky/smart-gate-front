@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { NavBar, Logo, NavLinks, NavLink, ContactButton } from './HeaderStyles';
+import { NavBar, Logo, NavLinks, NavLink } from './HeaderStyles';
 
 function Header() {
   const location = useLocation();
@@ -27,7 +27,12 @@ function Header() {
         >
           Services
         </NavLink>
-        <ContactButton>Contact</ContactButton>
+        <NavLink
+          href="/contact"
+          className={location.pathname === '/contact' ? 'active' : ''}
+        >
+          Contact
+        </NavLink>
       </NavLinks>
     </NavBar>
   );
